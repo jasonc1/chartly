@@ -4,6 +4,9 @@
 .red{
   background-color: #EF6282;
 }
+.white{
+  background-color: #fff;
+}
 
 .white-text{
   color: #fff;
@@ -76,11 +79,11 @@ html, body{
 #title{
   font-size: 5rem;
   text-align: center;
-  margin-top: -1rem;
+  margin-top: -2rem;
   margin-bottom: 1rem;
 }
 #logo{
-  padding-top: 10%;
+  padding-top: 8%;
 
 }
 
@@ -90,4 +93,28 @@ html, body{
   width: 100%;
   height: 100vh;
   position: relative;
+}
+
+.full{
+  height: 100vh;
+  width: 100%;
+  
+}
+
+
+
+
+/*-- Footer
+  ––––––––––––––––––––––––––––––––––––––––––––––––––*/
+
+
+footer{
+  padding-top: 1rem;
+  padding-bottom: 0rem;
+  text-align: center;
+  font-size: 10pt;
+  height: 78px;
+}
+footer a {
+  color: #EF6282;
 }
