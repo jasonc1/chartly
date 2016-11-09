@@ -21,10 +21,25 @@
 .centered{
   text-align: center;
 }
+.right{
+  float: right;
+}
+.left{
+  float: left;
+}
 
 
 /*-- CUSTOMS
   ––––––––––––––––––––––––––––––––––––––––––––––––––*/
+.top{
+  padding-top: 15px;
+}
+.top a{
+  text-decoration: none;
+  color: #fff;
+  padding-left: 10px;
+}
+
 .button{
     border: 1px solid #fff;
     letter-spacing: .25rem;
@@ -32,7 +47,9 @@
     width: 240px;
     transition: border .5s, color .5s;
     display: inline-block;
-
+}
+#helpTitle{
+    margin-top: 3rem;
 }
 
 .button:hover{
@@ -96,11 +113,16 @@ html, body{
 }
 
 .full{
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
-  
+
 }
 
+canvas#myChart{
+  background-color: #fff;
+  width: 100%;
+  height: auto;
+}
 
 
 
