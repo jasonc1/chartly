@@ -129,7 +129,7 @@ html, body{
   ––––––––––––––––––––––––––––––––––––––––––––––––––*/
 
 .title{
-  margin-top: 15%;
+  margin-top: 200px;
 }
 .mainText{
   font-size: 36pt;
@@ -146,7 +146,7 @@ html, body{
   margin-top: 2.5rem;
 }
 
-#title{
+#chartly{
   font-size: 5rem;
   text-align: center;
   margin-top: 1.5rem;
@@ -184,7 +184,30 @@ html, body{
   margin-bottom: 1%;
   padding-top: 200px;
   padding-bottom: 200px;
+  transition: opacity 0.5s, background-color 0.5s;
+  position: relative;
 }
+
+.boxIcon:hover{
+  opacity: .8;
+  background-color: black;
+}
+
+.boxIcon:hover .description{
+  visibility: visible;
+  opacity: 1;
+}
+
+.description{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  position: relative;
+  text-align: center;
+  visibility: hidden;
+}
+
 
 
 div.boxIcon > img{
@@ -256,7 +279,9 @@ footer a {
   #startButton{
     margin-top: 2rem;
   }
-
+  .title{
+    margin-top: 50px
+  }
   .blurb{
     margin-top: .5rem;
     font-size: .66rem;
