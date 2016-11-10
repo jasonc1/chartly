@@ -4,6 +4,16 @@
 .red{
   background-color: #EF6282;
 }
+.yellow{
+  background-color: #FFCD56;
+}
+.blue{
+  background-color: #36A1EA;
+}
+.green{
+  background-color: #61C7C7;
+}
+
 .white{
   background-color: #fff;
 }
@@ -29,28 +39,69 @@
 }
 
 
-/*-- CUSTOMS
+/*-- NAV
   ––––––––––––––––––––––––––––––––––––––––––––––––––*/
 .top{
   padding-top: 15px;
+  clear: both;
+} 
+.top *{
+  display: inline-block;
 }
+#backButton{
+
+}
+.logo{
+  margin: 0 auto;
+
+}
+
 .top a{
   text-decoration: none;
   color: #fff;
   padding-left: 10px;
 }
 
+
+/*-- CUSTOMS
+  ––––––––––––––––––––––––––––––––––––––––––––––––––*/
+a{
+  text-decoration: none;
+  transition: color .5s;
+}
+a:hover{
+  color: #61C7C7;
+}
+
+
+.container{
+  min-height: 100%;
+  width: 100%;
+  padding: 0px 15px 0px 15px;
+}
+
+html, body{
+  height: 100%;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+}
+
+/*-- BUTTON
+  ––––––––––––––––––––––––––––––––––––––––––––––––––*/
+
+#startButton{
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
 .button{
     border: 1px solid #fff;
     letter-spacing: .25rem;
     color: #fff;
-    width: 240px;
+    width: 200px;
     transition: border .5s, color .5s;
     display: inline-block;
 }
-#helpTitle{
-    margin-top: 3rem;
-}
+
 
 .button:hover{
   border: 1px solid #61C7C7;
@@ -67,41 +118,43 @@
   color: #fff;
   background-color: #61C7C7;
 }
-
-
-
-a{
-  text-decoration: none;
-  transition: color .5s;
-}
-a:hover{
-  color: #61C7C7;
-}
-html, body{
-  height: 100%;
+#help{
+  width: 100px;
+  margin-right: 10px;
+  padding-right: 10px;
+  margin-top: -10px;
 }
 
-.container{
-  min-height: 100%;
-  width: 100%;
+/*-- PAGE LAYOUT 
+  ––––––––––––––––––––––––––––––––––––––––––––––––––*/
 
+.title{
+  margin-top: 15%;
+}
+.mainText{
+  font-size: 36pt;
+}
+.subText{
+  margin-top: -1rem;
+}
+.header{
+  margin-bottom: 5%;
 }
 
-html, body{
-  height: 100%;
-  font-weight: 0;
-  font-size: 1.25rem;
+.blurb{
+  font-size: 1rem;
+  margin-top: 2.5rem;
 }
 
 #title{
   font-size: 5rem;
   text-align: center;
-  margin-top: -2rem;
+  margin-top: 1.5rem;
   margin-bottom: 1rem;
 }
 #logo{
-  padding-top: 8%;
-
+  padding-top: 25%;
+  margin-bottom: 5rem;
 }
 
 #cover{
@@ -115,8 +168,30 @@ html, body{
 .full{
   min-height: 100vh;
   width: 100%;
-
 }
+#menu{
+  max-width: 70%;
+  padding-bottom: 5rem;
+}
+
+.boxIcon{
+  width: 100%;
+  min-width: 600px;
+  max-height: 600px;
+  display: block;
+  margin: 0;
+  margin-right: 1%;
+  margin-bottom: 1%;
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+
+
+div.boxIcon > img{
+  width: auto;
+  height: 200px;
+}
+
 
 canvas#myChart{
   background-color: #fff;
@@ -139,4 +214,76 @@ footer{
 }
 footer a {
   color: #EF6282;
+}
+
+
+
+
+/*-- MOBILE
+  ––––––––––––––––––––––––––––––––––––––––––––––––––*/
+  @media only screen and (max-device-width: 768px) {
+
+  body{
+    font-size: 12pt;
+    line-height: 1rem;
+  }
+
+  .container{
+
+    height: 100%;
+    padding-top: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  #chartly{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  h5{
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+
+  #logo{
+    margin-bottom: 2.5rem;
+  }
+
+  img#icon{
+    width: 33%;
+    height: auto;
+  }
+  #startButton{
+    margin-top: 2rem;
+  }
+
+  .blurb{
+    margin-top: .5rem;
+    font-size: .66rem;
+  }
+
+  #menu{
+    max-width: 100%;
+  }
+  .boxIcon{
+    min-width: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 1rem;
+  }
+
+  div.boxIcon > img{
+    height: 100px;
+  }
+
+  form .column, .columns{
+    width: 100%;
+  }
+  form {
+    margin-top: 0;
+    display:none;
+
+  }
+
+
 }
