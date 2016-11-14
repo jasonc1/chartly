@@ -116,3 +116,6 @@ var genChart = function(){//creates chart
 // console.log(data);
 
 genChart();
+
+
+
