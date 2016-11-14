@@ -25,10 +25,41 @@ var data;//will be set
 
 //functions
 
-
-var genData = function(lower, upper, numLabels){
-  //generates random data within lower and upper for a certain number
+var randomInt = function(lower, upper){
+  return Math.floor(Math.random() * (upper - lower + 1)) + lower
 }
+
+var randomPercents = function(n){
+  var result = [];
+  var maxPercent = 100;
+  var temp = 0;
+  for(i = 0; i < n-1; i++){
+    result[i] = randomInt(1, maxPercent - (n-i-1)-temp);
+    temp+= result[i];
+  }
+  result[n-1] = maxPercent - temp;
+  return result;
+}
+
+
+var genData = function(numLabels, lower, upper ){
+  console.log(lower + " | " + upper);
+  //generates random data within lower and upper for a certain number
+  if((lower == null) && (upper == null)){//pie chart uses percentages
+    console.log("percents");
+    return randomPercents(numLabels);
+  }
+
+  var result= [];
+  for(i=0; i < numLabels; i++){
+    result.push(randomInt(lower, upper))
+  }
+  return result;
+}
+console.log(genData(1,10,8));
+console.log(genData(5));
+
+
 
 var chooseType = function(){
   switch($(this).attr('id')){
@@ -115,7 +146,8 @@ var genChart = function(){//creates chart
 // data["key2"] = 1000;
 // console.log(data);
 
-genChart();
+// genChart();
+
 
 
 
