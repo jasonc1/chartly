@@ -84,7 +84,8 @@ a:hover{
   padding: 0px 15px 0px 15px;
 }
 .steps{
- height: 1000px;
+ min-height: 1000px;
+ height: 100%;
 }
 html, body{
   height: 100%;
@@ -179,8 +180,9 @@ body.fadeOut{
 
 .full{
   min-height: 100vh;
-  height: 100%;
   width: 100%;
+   padding-bottom: 5rem;
+
 }
 #menu{
   max-width: 80%;
@@ -251,7 +253,7 @@ canvas#myChart{
   cursor: pointer;
 }
 .del{
-  height: 50px;
+  height: 40px;
   font-size: 18pt;
   color: #fff;
   cursor: pointer;
@@ -261,7 +263,7 @@ input[type="color"]{
   padding: 0;
   border: 1px solid #fff;
   width: 100px;
-  height: 50px;
+  height: 40px;
 }
 
 
@@ -311,7 +313,7 @@ input[type="text"]:focus{
 .row#progressWrap{
     position: absolute;
     left: calc(50% - 62.25px);
-    margin-top: -6rem;
+    margin-top: 0rem;
     margin-bottom: 5rem;
 }
 

@@ -1,4 +1,6 @@
 //data structs... json objects
+var labelColors = ["#EF6282", "#FFCD56", "#36A1EA", "#61C7C7", "#c9c9c9", "#ebe0ff", "#ffecd9", "#232323"]
+
 
 //pie
 var pie = {
@@ -106,7 +108,7 @@ var deleteLabel = function(e, isDelete){
 var xLabels = 1;
 //adds another x axis label
 var addXlabel = function(){
-
+  var pickedColor = labelColors[(xLabels % labelColors.length)];
   xLabels++;
   var destination = document.getElementById("extraLabels");
   var label = document.createElement("div");
@@ -125,7 +127,7 @@ var addXlabel = function(){
   colorCols.setAttribute("class", "two columns");
   var color = document.createElement("input");
   color.setAttribute("type", "color");
-  color.setAttribute("value", "#0000FF");
+  color.setAttribute("value", pickedColor);
   color.setAttribute("id", "color" + xLabels);
   colorCols.appendChild(color);
   label.appendChild(colorCols);
