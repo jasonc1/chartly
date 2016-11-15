@@ -37,6 +37,9 @@
 .left{
   float: left;
 }
+.hidden {
+  display: none;
+}
 
 
 /*-- NAV
@@ -77,11 +80,12 @@ a:hover{
 
 
 .container{
-  min-height: 100%;
   width: 100%;
   padding: 0px 15px 0px 15px;
 }
-
+.steps{
+ height: 1000px;
+}
 html, body{
   height: 100%;
   font-size: 1.25rem;
@@ -140,16 +144,13 @@ body.fadeOut{
   ––––––––––––––––––––––––––––––––––––––––––––––––––*/
 
 .title{
-  margin-top: 15%;
+  margin-top: 10%;
 }
 .mainText{
   font-size: 36pt;
 }
 .subText{
   margin-top: -1rem;
-}
-.header{
-  margin-bottom: 5%;
 }
 
 .blurb{
@@ -164,7 +165,7 @@ body.fadeOut{
   margin-bottom: 1rem;
 }
 #logo{
-  padding-top: 8%;
+  padding-top: 12.5%;
   margin-bottom: 5rem;
 }
 
@@ -178,16 +179,20 @@ body.fadeOut{
 
 .full{
   min-height: 100vh;
+  height: 100%;
   width: 100%;
 }
 #menu{
   max-width: 80%;
   padding-bottom: 5rem;
 }
+div.boxIcon p{
+  color: white;
+}
 
 .boxIcon{
   width: 100%;
-  min-width: 600px;
+  min-width: 400px;
   max-height: 600px;
   display: block;
   margin: 0;
@@ -201,7 +206,7 @@ body.fadeOut{
 
 .boxIcon:hover{
   opacity: .8;
-  background-color: black;
+  background-color: #c9c9c9;
 }
 
 .boxIcon:hover .description{
@@ -234,6 +239,107 @@ canvas#myChart{
   margin-bottom: 5rem;
 }
 
+/*-- Form
+  ––––––––––––––––––––––––––––––––––––––––––––––––––*/
+.label img{
+  width: 100%;
+  margin-bottom: 5rem;
+}
+.addLabel{
+  color: #fff;
+  font-size: 10pt;
+  cursor: pointer;
+}
+.del{
+  height: 50px;
+  font-size: 18pt;
+  color: #fff;
+  cursor: pointer;
+}
+
+input[type="color"]{
+  padding: 0;
+  border: 1px solid #fff;
+  width: 100px;
+  height: 50px;
+}
+
+
+form{
+  display: block;
+}
+
+select{
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+#or{
+  margin-top: 3rem;
+  font-size: 12pt;
+  text-align: center;
+}
+
+input[type="text"]{
+  padding: 20px 20px 20px 20px;
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: #EF6282;
+  margin-bottom: 2.5rem;
+  transition: border .5s;
+}
+input[type="text"]:focus{
+  border: 2px solid #61C7C7;
+}
+
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #fff;
+  opacity: .66;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #fff;
+  opacity: .66;
+}
+
+.next{
+  width: 125px;
+}
+
+/*-- progressbar
+  ––––––––––––––––––––––––––––––––––––––––––––––––––*/
+.row#progressWrap{
+    position: absolute;
+    left: calc(50% - 62.25px);
+    margin-top: -6rem;
+    margin-bottom: 5rem;
+}
+
+ul#progress {
+list-style:none;
+width:125px;
+margin:0 auto;
+padding-top:50px;
+padding-bottom:50px;
+padding-right: 46px;
+}
+ul#progress li {
+float:left;
+position:relative;
+width:15px;
+height:15px;
+border:1px solid #fff;
+border-radius:50px;
+margin-left:10px;
+
+}
+
+ul#progress li:first-child { margin-left:0; }
+
+ul#progress li.current{
+  background-color: white;
+}
+
 
 
 /*-- Footer
@@ -250,6 +356,16 @@ footer{
 footer a {
   color: #EF6282;
 }
+/*-- MOBILE
+  ––––––––––––––––––––––––––––––––––––––––––––––––––*/
+  @media only screen and (min-device-width: 1800px) {
+    #logo{
+      padding-top: 25%;
+    }
+    .title{
+      margin-top: 15%;
+    }   
+  }
 
 
 
@@ -322,5 +438,7 @@ footer a {
 
   }
 
-
+  .row#progressWrap{
+    margin-top: -7.5rem;
+  }
 }

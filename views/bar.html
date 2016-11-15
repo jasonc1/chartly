@@ -29,23 +29,108 @@
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <body>  
   <div class = "red full">
-    <!-- nav bar -->
-    <div class = "row top centered">
-      <a class = "left" id="backButton" href="../index.html">&#60; back</a>
-      <div class = "white-text logo" >chartly</div>
-      <a class = "right" id="backButton" href="../index.html" style="visibility:hidden;">&#60; back</a>
-    </div>
-    <!--body-->
-    <div class = "container">
-      <div class = "row header">
-        <h5 class = "white-text mainText title">Bar chart</h5>
-        <p class = "subText white-text">testing... fml</p>
+    <!-- 1st step -->
+    <div id = "bar1">
+      <!-- nav bar -->
+      <div class = "row top centered">
+        <a class = "left" id="backButton" href="menu.html">&#60; back</a>
+        <div class = "white-text logo" >bar chart</div>
+        <a class = "right" id="backButton" href="../index.html" style="visibility:hidden;">&#60; back</a>
       </div>
-      <div class= "row"><canvas id="myChart"></canvas></div>
-      
+      <!--body-->
+      <div class = "container steps" >
+      <div class = "row header">
+        <h5 class = "white-text mainText title">Name your chart</h5>
+        <p class = "subText white-text"></p>
+      </div>
+      <div class= "row">
+        <div class = "twelve columns">
+          <input type = "text" class = "u-full-width" placeholder="enter name" id = "chartName">
+        </div>
+      </div>
+      <a class="button secondary right next" onClick = "nextPage('bar1', 'bar2')">Next &#62;&#62;</a>
+     </div>
     </div>
+
+    <!-- 2nd step -->
+    <div class= "hidden" id = "bar2">
+      <div class = "row top centered">
+        <a class = "left" id="backButton" onClick="prevPage('bar2', 'bar1')">&#60; back</a>
+        <div class = "white-text logo" >bar chart</div>
+        <a class = "right" id="backButton" href="../index.html" style="visibility:hidden;">&#60; back</a>
+      </div>
+      <div class = "container steps" >
+      <div class = "row header">
+        <h5 class = "white-text mainText title">Data Range (y)</h5>
+        <p class = "subText white-text">The range for your y axis</p>
+      </div>
+      <div class = "row label">
+        <img src = "../img/barYlabel.png"/>
+      </div>
+      <div class= "row">
+        <div class = "twelve columns">
+          <input type = "text" class = "u-full-width" placeholder="max value" id = "chartName">
+        </div>
+        <div class = "twelve columns">
+          <p class = "white-text">to</p>
+        </div>
+        <div class = "twelve columns">
+          <input type = "text" class = "u-full-width" placeholder="min value" id = "chartName">
+        </div>
+      </div>
+      <a class="button secondary right next" onClick = "nextPage('bar2', 'bar3')">Next &#62;&#62;</a>
+      </div>
+    </div>
+
+    <!-- 3rd step -->
+    <div class= "hidden" id = "bar3">
+      <div class = "row top centered">
+        <a class = "left" id="backButton" onClick="prevPage('bar3', 'bar2')">&#60; back</a>
+        <div class = "white-text logo" >bar chart</div>
+        <a class = "right" id="backButton" href="../index.html" style="visibility:hidden;">&#60; back</a>
+      </div>
+      <div class = "container steps" >
+      <div class = "row header">
+        <h5 class = "white-text mainText title">Data Range (x)</h5>
+        <p class = "subText white-text">The range for your x axis</p>
+      </div>
+      <div class = "row label">
+        <img src = "../img/barXlabel.png"/>
+      </div>
+      <div id = "labels">
+        <div class= "row">
+          <div class = "nine columns">
+            <input type = "text" class = "u-full-width" placeholder="label 1" id = "xLabel1">
+          </div>
+          <div class = "two columns">
+            <input type=color value="#0000FF" id="color1">
+          </div>
+          <div class = "one column">&nbsp;
+          </div>
+        </div>
+        <div class = "row" id = "extraLabels">
+        </div>
+        <div class = "row">
+          <div class = "addLabel" onClick = "addXlabel()">+ add label</div>
+        </div>
+      </div>
+
+      <a class="button secondary right next" onClick = "nextPage('bar2', 'bar3')">Next &#62;&#62;</a>
+      </div>
+    </div>
+    
+
   </div>
   <footer class = "white">
+    <div class="row" id = "progressWrap">
+        <ul id="progress">
+        <li class = "current"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        </ul>
+      </div>
     <div >
       FOR EDUCATIONAL PURPOSES ONLY<br>
       &#169; 2016 All Rights Reserved<br>
@@ -58,6 +143,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
 <script src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+
 <script data-main="../js/main" src="../js/require.js"></script>
 
 </html>

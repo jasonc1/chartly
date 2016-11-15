@@ -43,7 +43,6 @@ var randomPercents = function(n){
 
 
 var genData = function(numLabels, lower, upper ){
-  console.log(lower + " | " + upper);
   //generates random data within lower and upper for a certain number
   if((lower == null) && (upper == null)){//pie chart uses percentages
     console.log("percents");
@@ -56,7 +55,7 @@ var genData = function(numLabels, lower, upper ){
   }
   return result;
 }
-console.log(genData(1,10,8));
+console.log(genData(8, 1, 10));
 console.log(genData(5));
 
 
@@ -76,6 +75,72 @@ var chooseType = function(){
       data = rad;
       break;
   }
+}
+
+var nextPage = function(current, next){
+  pageChanger(current, next);
+}
+var prevPage = function(current, prev){
+  pageChanger(current, prev);
+}
+
+
+function classAssigner(element, classNameParam) {
+  //finds the element and assigns it the proper class, or an empty string
+  var curElement = document.getElementById(element);
+  curElement.className = classNameParam;
+}
+
+function pageChanger(curPage, nextPage) {
+  //calls classAssigner for each item in the curPage index of the pageContent array
+  classAssigner(curPage, 'hidden');
+  classAssigner(nextPage, '');
+
+}
+var deleteLabel = function(e, isDelete){
+  e.parentNode.parentNode.style.opacity = 0;
+  setTimeout(function(){e.parentNode.parentNode.parentNode.removeChild(e.parentNode.parentNode);}, 500);
+  xLabels--;
+}
+
+var xLabels = 1;
+//adds another x axis label
+var addXlabel = function(){
+
+  xLabels++;
+  var destination = document.getElementById("extraLabels");
+  var label = document.createElement("div");
+  label.setAttribute("class", "row");
+  var textCols = document.createElement("div");
+  textCols.setAttribute("class", " nine columns");
+  var text = document.createElement("input");
+  text.setAttribute("class", "u-full-width");
+  text.setAttribute("type", "text");
+  text.setAttribute("placeholder", "label " + xLabels);
+  text.setAttribute("id", "xLabel" + xLabels);
+  textCols.appendChild(text);
+  label.appendChild(textCols);
+
+  var colorCols = document.createElement("div");
+  colorCols.setAttribute("class", "two columns");
+  var color = document.createElement("input");
+  color.setAttribute("type", "color");
+  color.setAttribute("value", "#0000FF");
+  color.setAttribute("id", "color" + xLabels);
+  colorCols.appendChild(color);
+  label.appendChild(colorCols);
+
+  var delCols = document.createElement("divs");
+  delCols.setAttribute("class", "one column");
+  var del = document.createElement("a");//to delete task
+  del.setAttribute("class", "del");
+  del.appendChild(document.createTextNode("X"));
+  del.setAttribute("onclick", "deleteLabel(this)");
+  delCols.appendChild(del);
+  label.appendChild(delCols);
+
+  destination.appendChild(label);
+
 }
 
 //write data based on inputs
@@ -147,7 +212,5 @@ var genChart = function(){//creates chart
 // console.log(data);
 
 // genChart();
-
-
 
 
