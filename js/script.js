@@ -1,5 +1,6 @@
 //data structs... json objects
 var labelColors = ["#EF6282", "#FFCD56", "#36A1EA", "#61C7C7", "#c9c9c9", "#ebe0ff", "#ffecd9", "#232323"]
+var xLabels = 1;
 
 
 //pie
@@ -15,7 +16,30 @@ var line = {
 
 //bar
 var bar = {
-
+    type: 'bar',
+    data: {
+        labels: [],
+        datasets: [{
+            label: '',
+            data: [],
+            backgroundColor: [
+                
+            ],
+            borderColor: [
+                
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
 }
 
 //radial
@@ -23,7 +47,7 @@ var rad = {
 
 }
 
-var data;//will be set 
+var result;//will be set 
 
 //functions
 
@@ -47,7 +71,6 @@ var randomPercents = function(n){
 var genData = function(numLabels, lower, upper ){
   //generates random data within lower and upper for a certain number
   if((lower == null) && (upper == null)){//pie chart uses percentages
-    console.log("percents");
     return randomPercents(numLabels);
   }
 
@@ -57,24 +80,34 @@ var genData = function(numLabels, lower, upper ){
   }
   return result;
 }
-console.log(genData(8, 1, 10));
-console.log(genData(5));
+// console.log(genData(8, 1, 10));
+// console.log(genData(5));
+
+var getPage = function(){
+//found at
+//http://stackoverflow.com/questions/16611497/how-can-i-get-the-name-of-an-html-page-in-javascript
+  var path = window.location.pathname;
+  var page = path.split("/").pop();
+  return page;
+}
 
 
 
 var chooseType = function(){
-  switch($(this).attr('id')){
-    case "pie":
-      data = pie;
+  switch(getPage()){
+    case "pie.html":
+      result = pie;
       break;
-    case "line":
-      data = line;
+    case "line.html":
+      console.log("Line chart chosen");
+      result = line;
       break;
-    case "bar": 
-      data = bar;
+    case "bar.html": 
+      console.log("bar chart chosen");
+      result = bar;
       break;
-    case "radial":
-      data = rad;
+    case "radial.html":
+      result = rad;
       break;
   }
 }
@@ -105,7 +138,6 @@ var deleteLabel = function(e, isDelete){
   xLabels--;
 }
 
-var xLabels = 1;
 //adds another x axis label
 var addXlabel = function(){
   var pickedColor = labelColors[(xLabels % labelColors.length)];
@@ -144,52 +176,64 @@ var addXlabel = function(){
   destination.appendChild(label);
 
 }
+var borderSlider = function(){
+  var destination = document.getElementById("borderStyle");
+  var wrap = document.createElement("div");
+  wrap.setAttribute("class","row");
+  wrap.setAttribute("id", "slideWrap");
+  var title = document.createElement("h5");
+  text = document.createTextNode("Bar Border");
+  title.appendChild(text);
+  wrap.appendChild(title);
+
+  var slider = document.createElement("input");
+  slider.setAttribute("type", "range");
+  slider.setAttribute("min", "0");
+  slider.setAttribute("max", "10");
+  slider.setAttribute("id", "slider");
+  slider.setAttribute("value", "1");
+  slider.setAttribute("step", ".25");
+  slider.setAttribute("oninput", "updateSlider(value)");
+  wrap.appendChild(slider);
+
+  var output = document.createElement("output");
+  output.setAttribute("for", "slider");
+  output.setAttribute("id", "borderVal");
+  wrap.appendChild(output);
+
+  destination.appendChild(wrap);
+}
+
+var removeBorderSlider = function(){
+  var e = document.getElementById("slideWrap");
+  e.parentNode.removeChild(e);
+}
+
+var updateSlider = function(n) {
+  document.querySelector('#borderVal').value = n;
+}
+
 
 //write data based on inputs
+var getName = function(){
+  var chartName = document.getElementById("chartName").value;
+  result.data.datasets[0].label = chartName;
+
+}
+
 
 var resetVal = function(){//resets values of data structs;
 
 }
 
 
-data = {
-    type: 'bar',
-    data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-}
 
 
+
+
+console.log(bar);
+
+chooseType();
 
 
 var genChart = function(){//creates chart

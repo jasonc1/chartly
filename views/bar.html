@@ -48,7 +48,7 @@
           <input type = "text" class = "u-full-width" placeholder="enter name" id = "chartName">
         </div>
       </div>
-      <a class="button secondary right next" onClick = "nextPage('bar1', 'bar2')">Next &#62;&#62;</a>
+      <a class="button secondary right next" onClick = "nextPage('bar1', 'bar2'); getName();">Next &#62;&#62;</a>
         <div class="row" id = "progressWrap">
         <ul id="progress">
         <li class = "current"></li>
@@ -121,7 +121,7 @@
             <input type = "text" class = "u-full-width" placeholder="label 1" id = "xLabel1">
           </div>
           <div class = "two columns">
-            <input type=color value="#0000FF" id="color1">
+            <input type=color value="#03A9F4" id="color1">
           </div>
           <div class = "one column">&nbsp;
           </div>
@@ -158,28 +158,23 @@
         <h5 class = "white-text mainText title">Bar Borders</h5>
         <p class = "subText white-text">Stylize your bars if you'd like</p>
       </div>
-      <div class = "row label">
-        <img src = "../img/barXlabel.png"/>
-      </div>
-      <div id = "labels">
-        <div class= "row">
-          <div class = "nine columns">
-            <input type = "text" class = "u-full-width" placeholder="label 1" id = "xLabel1">
+      <div class = "row white-text" id = "borderStyle">
+          <div class = "row">
+            <div class = "one-half column">
+              <!-- it's impossible to stylize radio buttons -->
+              <input type="radio" class = "square-radio" name="borderCheck" onClick = "borderSlider()">
+              <span class="label-body">Yes - I want borders</span>
+            </div>
+            <div class = "one-half column">
+              <input type="radio" class = "square-radio" name="borderCheck" onClick = "removeBorderSlider()">
+              <span class="label-body">Nah - I don't want borders</span>
+            </div>
           </div>
-          <div class = "two columns">
-            <input type=color value="#03A9F4" id="color1">
-          </div>
-          <div class = "one column">&nbsp;
-          </div>
-        </div>
-        <div class = "row" id = "extraLabels">
-        </div>
-        <div class = "row">
-          <div class = "addLabel" onClick = "addXlabel()">+ add label</div>
-        </div>
-      </div>
 
-      <a class="button secondary right next" onClick = "nextPage('bar2', 'bar3')">Next &#62;&#62;</a>
+        <br><br><br>
+       </div>
+
+      <a class="button secondary right next" onClick = "nextPage('bar4', 'bar5')">Next &#62;&#62;</a>
              <div class="row" id = "progressWrap">
         <ul id="progress">
         <li class = "current"></li>
