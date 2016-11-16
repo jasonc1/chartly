@@ -254,7 +254,8 @@ canvas#myChart{
 }
 .del{
   height: 40px;
-  font-size: 18pt;
+  font-size: 12pt;
+  line-height: 30pt;
   color: #fff;
   cursor: pointer;
 }
@@ -413,6 +414,9 @@ footer a {
     margin-bottom: 2rem;
   }
 
+  .steps{
+    min-height: 736px;
+  }
   h5{
     font-size: 1.25rem;
     line-height: 1.5rem;
@@ -450,17 +454,25 @@ footer a {
   div.boxIcon > img{
     height: 100px;
   }
-
-  form .column, .columns{
-    width: 100%;
+  #specialCols .columns, .column{
+    margin-right: 10px;
+    width: auto;
   }
-  form {
-    margin-top: 0;
-    display:none;
+    #extraLabels .columns, .column{
+    margin-right: 10px;  
+    width: auto;
+  }
+  input[type="color"]{
+    width: 75px;
+  }
 
+
+  .del{
+    margin-left: 10px;
   }
 
   .row#progressWrap{
-    margin-top: -7.5rem;
-  }
+   bottom: 0; 
+   margin-bottom: -5rem;
+    }
 }

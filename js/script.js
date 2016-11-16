@@ -1,6 +1,8 @@
 //data structs... json objects
 var labelColors = ["#EF6282", "#FFCD56", "#36A1EA", "#61C7C7", "#c9c9c9", "#ebe0ff", "#ffecd9", "#232323"]
 var xLabels = 1;
+var max;
+var min;
 
 
 //pie
@@ -217,10 +219,42 @@ var updateSlider = function(n) {
 //write data based on inputs
 var getName = function(){
   var chartName = document.getElementById("chartName").value;
+  if(chartName == ""){
+    alert("Chart name can't be blank")
+    return;
+  }
   result.data.datasets[0].label = chartName;
-
+  console.log("name ok");
+  nextPage('bar1', 'bar2');
 }
 
+var getRange = function(){
+  max = parseInt(document.getElementById("maxY").value);
+  min = parseInt(document.getElementById("minY").value);
+  if(max < min){
+    alert("Max range can't be less than Min");
+    console.log(max < min);
+    console.log("result: " + max + "|" + min);
+    return;
+  }
+  nextPage('bar2', 'bar3'); 
+}
+
+var getLabels = function(){
+  var labels = [];
+  var colors = [];
+  for (i=1; i < xLabels + 1; i++){
+    var label = document.getElementById("xLabel" + i);
+    var color = document.getElementById("color" + i);
+    labels.push(label.value);
+    colors.push(color.value);
+  }
+  console.log(labels);
+  console.log(colors);
+
+  //write to json file;
+  nextPage('bar3', 'bar4');
+}
 
 var resetVal = function(){//resets values of data structs;
 

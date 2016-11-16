@@ -48,7 +48,7 @@
           <input type = "text" class = "u-full-width" placeholder="enter name" id = "chartName">
         </div>
       </div>
-      <a class="button secondary right next" onClick = "nextPage('bar1', 'bar2'); getName();">Next &#62;&#62;</a>
+      <a class="button secondary right next" onClick = " getName();">Next &#62;&#62;</a>
         <div class="row" id = "progressWrap">
         <ul id="progress">
         <li class = "current"></li>
@@ -78,16 +78,16 @@
       </div>
       <div class= "row">
         <div class = "twelve columns">
-          <input type = "text" class = "u-full-width" placeholder="max value" id = "chartName">
+          <input type = "text" class = "u-full-width" placeholder="max value" id = "maxY">
         </div>
         <div class = "twelve columns">
           <p class = "white-text">to</p>
         </div>
         <div class = "twelve columns">
-          <input type = "text" class = "u-full-width" placeholder="min value" id = "chartName">
+          <input type = "text" class = "u-full-width" placeholder="min value" id = "minY">
         </div>
       </div>
-      <a class="button secondary right next" onClick = "nextPage('bar2', 'bar3')">Next &#62;&#62;</a>
+      <a class="button secondary right next" onClick = "getRange()">Next &#62;&#62;</a>
        <div class="row" id = "progressWrap">
         <ul id="progress">
         <li class = "current"></li>
@@ -116,7 +116,7 @@
         <img src = "../img/barXlabel.png"/>
       </div>
       <div id = "labels">
-        <div class= "row">
+        <div class= "row" id = "specialCols">
           <div class = "nine columns">
             <input type = "text" class = "u-full-width" placeholder="label 1" id = "xLabel1">
           </div>
@@ -133,7 +133,7 @@
         </div>
       </div>
 
-      <a class="button secondary right next" onClick = "nextPage('bar3', 'bar4')">Next &#62;&#62;</a>
+      <a class="button secondary right next" onClick = "getLabels();">Next &#62;&#62;</a>
              <div class="row" id = "progressWrap">
         <ul id="progress">
         <li class = "current"></li>
