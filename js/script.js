@@ -1,14 +1,30 @@
+// INIT CHARTJS
+define(['chart'], function(Chart){
+  ctx = document.getElementById("myChart");
+  console.log("hello");
+})
+
+
 //data structs... json objects
 var labelColors = ["#EF6282", "#FFCD56", "#36A1EA", "#61C7C7", "#c9c9c9", "#ebe0ff", "#ffecd9", "#232323"]
 var xLabels = 1;
+var dataPoints = [];
+var colors = [];
+var borderColors = [];
+var labels = [];
 var max;
 var min;
+var chartName;
+var width;
+var borders;
+var ctx; 
 
 
 //pie
 var pie = {
   
 }
+
 
 //line
 var line = {
@@ -49,41 +65,35 @@ var rad = {
 
 }
 
+var test = {
+    labels: [
+        "Red",
+        "Blue",
+        "Yellow"
+    ],
+    datasets: [
+        {
+            data: [300, 50, 100],
+            backgroundColor: [
+                "#FF6384",
+                "#36A2EB",
+                "#FFCE56"
+            ],
+            hoverBackgroundColor: [
+                "#FF6384",
+                "#36A2EB",
+                "#FFCE56"
+            ]
+        }]
+}
 var result;//will be set 
 
 //functions
 
-var randomInt = function(lower, upper){
-  return Math.floor(Math.random() * (upper - lower + 1)) + lower
-}
-
-var randomPercents = function(n){
-  var result = [];
-  var maxPercent = 100;
-  var temp = 0;
-  for(i = 0; i < n-1; i++){
-    result[i] = randomInt(1, maxPercent - (n-i-1)-temp);
-    temp+= result[i];
-  }
-  result[n-1] = maxPercent - temp;
-  return result;
-}
 
 
-var genData = function(numLabels, lower, upper ){
-  //generates random data within lower and upper for a certain number
-  if((lower == null) && (upper == null)){//pie chart uses percentages
-    return randomPercents(numLabels);
-  }
-
-  var result= [];
-  for(i=0; i < numLabels; i++){
-    result.push(randomInt(lower, upper))
-  }
-  return result;
-}
-// console.log(genData(8, 1, 10));
-// console.log(genData(5));
+//"controller" portion
+//use show and hide for certain steps of the form;
 
 var getPage = function(){
 //found at
@@ -132,8 +142,9 @@ function pageChanger(curPage, nextPage) {
   //calls classAssigner for each item in the curPage index of the pageContent array
   classAssigner(curPage, 'hidden');
   classAssigner(nextPage, '');
-
 }
+
+
 var deleteLabel = function(e, isDelete){
   e.parentNode.parentNode.style.opacity = 0;
   setTimeout(function(){e.parentNode.parentNode.parentNode.removeChild(e.parentNode.parentNode);}, 500);
@@ -179,6 +190,8 @@ var addXlabel = function(){
 
 }
 var borderSlider = function(){
+  borders = true;
+
   var destination = document.getElementById("borderStyle");
   var wrap = document.createElement("div");
   wrap.setAttribute("class","row");
@@ -209,21 +222,57 @@ var borderSlider = function(){
 var removeBorderSlider = function(){
   var e = document.getElementById("slideWrap");
   e.parentNode.removeChild(e);
+  borders = false;
 }
 
 var updateSlider = function(n) {
   document.querySelector('#borderVal').value = n;
 }
 
+/*-- Bar Chart 
+    –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 //write data based on inputs
+var randomInt = function(lower, upper){
+  return Math.floor(Math.random() * (upper - lower + 1)) + lower
+}
+
+var randomPercents = function(n){
+  var result = [];
+  var maxPercent = 100;
+  var temp = 0;
+  for(i = 0; i < n-1; i++){
+    result[i] = randomInt(1, maxPercent - (n-i-1)-temp);
+    temp+= result[i];
+  }
+  result[n-1] = maxPercent - temp;
+  return result;
+}
+
+
+var genData = function(numLabels, lower, upper ){
+  //generates random data within lower and upper for a certain number
+  if((lower == null) && (upper == null)){//pie chart uses percentages
+    return randomPercents(numLabels);
+  }
+
+  var result= [];
+  for(i=0; i < numLabels; i++){
+    result.push(randomInt(lower, upper))
+  }
+  return result;
+}
+// console.log(genData(8, 1, 10));
+// console.log(genData(5));
+
+
+
 var getName = function(){
-  var chartName = document.getElementById("chartName").value;
+  chartName = document.getElementById("chartName").value;
   if(chartName == ""){
     alert("Chart name can't be blank")
     return;
   }
-  result.data.datasets[0].label = chartName;
   console.log("name ok");
   nextPage('bar1', 'bar2');
 }
@@ -241,8 +290,7 @@ var getRange = function(){
 }
 
 var getLabels = function(){
-  var labels = [];
-  var colors = [];
+
   for (i=1; i < xLabels + 1; i++){
     var label = document.getElementById("xLabel" + i);
     var color = document.getElementById("color" + i);
@@ -253,7 +301,48 @@ var getLabels = function(){
   console.log(colors);
 
   //write to json file;
+
   nextPage('bar3', 'bar4');
+}
+
+
+var getDatapoints = function(){
+  dataPoints = genData(labels.length, min, max);
+}
+
+var getBorderWidth = function(){
+  if(borders){
+      width = document.getElementById("borderVal").value;
+      borderColors = colors;
+  }
+  else{
+    width = 0;
+    borderColors = null;
+  }
+
+}
+
+
+
+var writeJSON = function(){
+  //name
+  result.data.datasets[0].label = chartName;
+
+  //labels
+  result.data.labels = labels;
+
+  //colors
+  result.data.datasets[0].backgroundColor = colors;
+
+  //borderColor
+  result.data.datasets[0].borderColor = borderColors;
+
+  //borderwidth
+  result.data.datasets[0].borderWidth = parseInt(width);
+
+  //data
+  result.data.datasets[0].data = dataPoints;
+
 }
 
 var resetVal = function(){//resets values of data structs;
@@ -272,16 +361,12 @@ chooseType();
 
 var genChart = function(){//creates chart
   console.log("start");
-  define(['chart'], function(Chart){
-    var ctx = document.getElementById("myChart");
+  console.log(result);
+    var myChart = new Chart(ctx, result);
 
-    var myChart = new Chart(ctx, data);
-    console.log("hello");
-  })
+
 }
 
-//"controller" portion
-//use show and hide for certain steps of the form;
 
 //prelim test;
 // console.log(data);

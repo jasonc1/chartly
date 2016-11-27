@@ -133,7 +133,7 @@
         </div>
       </div>
 
-      <a class="button secondary right next" onClick = "getLabels();">Next &#62;&#62;</a>
+      <a class="button secondary right next" onClick = "getLabels(); getDatapoints();">Next &#62;&#62;</a>
              <div class="row" id = "progressWrap">
         <ul id="progress">
         <li class = "current"></li>
@@ -174,7 +174,7 @@
         <br><br><br>
        </div>
 
-      <a class="button secondary right next" onClick = "nextPage('bar4', 'bar5')">Next &#62;&#62;</a>
+      <a class="button secondary right next" onClick = "getBorderWidth(); writeJSON(); nextPage('bar4', 'bar5'); genChart();">Next &#62;&#62;</a>
              <div class="row" id = "progressWrap">
         <ul id="progress">
         <li class = "current"></li>
@@ -184,6 +184,17 @@
         <li></li>
         </ul>
       </div>
+      </div>
+    </div>
+
+    <div class= "hidden" id = "bar5" >
+      <div class = "row top centered">
+        <a class = "left" id="backButton" onClick="prevPage('bar5', 'bar4')">&#60; back</a>
+        <div class = "white-text logo" >bar chart</div>
+        <a class = "right" id="backButton" href="../index.html" style="visibility:hidden;">&#60; back</a>
+      </div>
+      <div class = "container steps" >
+      <canvas id ="myChart"></canvas>
       </div>
     </div>
       
