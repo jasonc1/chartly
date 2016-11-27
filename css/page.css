@@ -334,7 +334,7 @@ input[type="range"]{
 .row#progressWrap{
     position: absolute;
     left: calc(50% - 62.25px);
-    margin-top: 5rem;
+    margin-top: 2.5rem;
     margin-bottom: 5rem;
 }
 
@@ -363,7 +363,9 @@ ul#progress li.current{
   background-color: white;
 }
 
-
+#myChart{
+  mar
+}
 
 /*-- Footer
   ––––––––––––––––––––––––––––––––––––––––––––––––––*/

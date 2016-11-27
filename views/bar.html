@@ -194,7 +194,21 @@
         <a class = "right" id="backButton" href="../index.html" style="visibility:hidden;">&#60; back</a>
       </div>
       <div class = "container steps" >
-      <canvas id ="myChart"></canvas>
+        <div class = "row header">
+          <h5 class = "white-text mainText title">Your Bar Chart</h5>
+        </div>
+        <canvas id ="myChart"></canvas>
+        <div class = "row centered">
+          <div class = "one-third column">
+            <a class = "button primary" onClick = "saveImage(this, 'myChart', 'chart.png')">Save Image</a>
+          </div>
+          <div class = "one-third column">
+            <a class = "button secondary" href = "menu.html" onClick = "resetVal()">Main Menu</a>
+          </div>
+          <div class = "one-third column">
+            <a class = "button secondary " onClick="prevPage('bar5', 'bar4')">Back</a>
+          </div>
+        </div>
       </div>
     </div>
       

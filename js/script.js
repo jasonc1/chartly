@@ -6,7 +6,7 @@ define(['chart'], function(Chart){
 
 
 //data structs... json objects
-var labelColors = ["#EF6282", "#FFCD56", "#36A1EA", "#61C7C7", "#c9c9c9", "#ebe0ff", "#ffecd9", "#232323"]
+var labelColors = ["#EF6282", "#EF6282", "#FFCD56", "#36A1EA", "#61C7C7", "#c9c9c9", "#ebe0ff", "#ffecd9", "#232323"]
 var xLabels = 1;
 var dataPoints = [];
 var colors = [];
@@ -221,7 +221,9 @@ var borderSlider = function(){
 
 var removeBorderSlider = function(){
   var e = document.getElementById("slideWrap");
-  e.parentNode.removeChild(e);
+  if(e != null){
+    e.parentNode.removeChild(e);
+  }
   borders = false;
 }
 
@@ -290,7 +292,9 @@ var getRange = function(){
 }
 
 var getLabels = function(){
-
+  //reset;
+  labels = [];
+  colors = [];
   for (i=1; i < xLabels + 1; i++){
     var label = document.getElementById("xLabel" + i);
     var color = document.getElementById("color" + i);
@@ -327,29 +331,30 @@ var getBorderWidth = function(){
 var writeJSON = function(){
   //name
   result.data.datasets[0].label = chartName;
-
   //labels
   result.data.labels = labels;
-
   //colors
   result.data.datasets[0].backgroundColor = colors;
-
   //borderColor
   result.data.datasets[0].borderColor = borderColors;
-
   //borderwidth
   result.data.datasets[0].borderWidth = parseInt(width);
-
   //data
   result.data.datasets[0].data = dataPoints;
 
 }
 
 var resetVal = function(){//resets values of data structs;
-
+  result = null;
 }
 
 
+//referenced
+//https://jsfiddle.net/AbdiasSoftware/7PRNN/
+var saveImage = function(link, canvas, filename){
+  link.href = document.getElementById(canvas).toDataURL();
+  link.download = filename;
+}
 
 
 
