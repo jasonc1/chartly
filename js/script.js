@@ -251,7 +251,7 @@ var randomPercents = function(n){
   return result;
 }
 
-
+//referenced from http://stackoverflow.com/questions/19277973/generate-4-random-numbers-that-add-to-a-certain-value-in-javascript
 var genData = function(numLabels, lower, upper ){
   //generates random data within lower and upper for a certain number
   if((lower == null) && (upper == null)){//pie chart uses percentages
@@ -348,7 +348,6 @@ var resetVal = function(){//resets values of data structs;
   result = null;
 }
 
-
 //referenced
 //https://jsfiddle.net/AbdiasSoftware/7PRNN/
 var saveImage = function(link, canvas, filename){
@@ -356,13 +355,7 @@ var saveImage = function(link, canvas, filename){
   link.download = filename;
 }
 
-
-
-
-console.log(bar);
-
 chooseType();
-
 
 var genChart = function(){//creates chart
   console.log("start");

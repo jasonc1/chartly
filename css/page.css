@@ -207,8 +207,7 @@ div.boxIcon p{
 }
 
 .boxIcon:hover{
-  opacity: .8;
-  background-color: #c9c9c9;
+  background-color: #232323;
 }
 
 .boxIcon:hover .description{

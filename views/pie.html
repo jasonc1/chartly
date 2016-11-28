@@ -27,24 +27,38 @@
 </head>
 <!-- Body
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<body>  
+<body>
   <div class = "red full">
     <!-- nav bar -->
     <div class = "row top centered">
       <a class = "left" id="backButton" href="../index.html">&#60; back</a>
-      <div class = "white-text logo" >chartly</div>
+      <div class = "white-text logo" >pie chart</div>
       <a class = "right" id="backButton" href="../index.html" style="visibility:hidden;">&#60; back</a>
+
     </div>
     <!--body-->
-    <div class = "container">
+    <div class = "container steps">
       <div class = "row">
-        <h5 class = "white-text title"> </h5>
+        <h5 class = "white-text title">Pie chart - in development!</h5>
       </div>
       <div class = "row white-text">
-        <canvas id = "myChart" onLoad="genChart();"></canvas>
+        
+      </div>
+        <!-- <a class="button secondary right next" onClick = "">Next &#62;&#62;</a> -->
+        <div class="row" id = "progressWrap">
+          <ul id="progress">
+            <li class = "current"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
       </div>
     </div>
   </div>
+
+    <!-- Footer
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <footer class = "white">
     <div >
       FOR EDUCATIONAL PURPOSES ONLY<br>
@@ -58,5 +72,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
 <script src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+
 <script data-main="../js/main" src="../js/require.js"></script>
+
 </html>
