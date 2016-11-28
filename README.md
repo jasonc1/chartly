@@ -19,7 +19,7 @@ I chose not to use Angular (as mentioned in assignment 5 checkpoint) because it 
 ## Functionality
 The purpose of this prototype was to help users make a chart simply and easily with a broken down step process of key elements. From the index.html page you will find two options: a help button or a "get started" button. From there you can go to the menu or the help page to learn more about how the application works. From the menu you can then choose what chart you'd like to make. 
 
-For each type of chart, the application will ask for a series of inputs (they vary based on each chart), but some example of inputs are: chart name, number of labels, data ranges, and etc. For the most part, there is very little input validation for the bar chart besides: the name of the chart cant be blank, and that the max value cannot be less than the min value for the Y axis (as this is used to generate the random values). For things like label names, they just cannot be blank, and the colors are preset, but a user can use the color picker to change what he/she wants. 
+For each type of chart, the application will ask for a series of inputs (they vary based on each chart), but some example of inputs are: chart name, number of labels, data ranges, and etc. For the most part, there is very little input validation for the bar chart besides: the name of the chart cant be blank, and that the max value cannot be less than the min value for the Y axis (as this is used to generate the random values). For things like label names, the user can choose to put in whatever he/she wants as each label's name, and the colors are preset, but a user can use the color picker to change what he/she wants. 
 
 
 ## For Future Improvements
