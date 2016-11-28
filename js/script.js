@@ -280,8 +280,14 @@ var getName = function(){
 }
 
 var getRange = function(){
-  max = parseInt(document.getElementById("maxY").value);
-  min = parseInt(document.getElementById("minY").value);
+  var tempMax = document.getElementById("maxY").value;
+  var tempMin = document.getElementById("minY").value;
+  if(isNaN(tempMax) || isNaN(tempMin)){
+    alert("please input NUMBERS only");
+    return;
+  }
+  max = parseInt(tempMax);
+  min = parseInt(tempMin);
   if(max < min){
     alert("Max range can't be less than Min");
     console.log(max < min);
